@@ -1,0 +1,15 @@
+package: community.lazycat.app.my-ielts
+version: 0.1.0
+name: My IELTS
+description: "IELTS 备考资料：词汇真经、语法、听力 179、阅读 538、同义替换"
+min_os_version: 1.5.0
+author: hefengxian
+license: UNLICENSED
+homepage: https://github.com/hefengxian/my-ielts
+locales:
+  zh:
+    name: "My IELTS"
+    description: "雅思备考资料集：词汇真经、语法、听力 179、阅读 538、同义替换等"
+  en:
+    name: "My IELTS"
+    description: "IELTS preparation: vocabulary, grammar, listening, reading, synonyms"

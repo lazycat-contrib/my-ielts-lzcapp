@@ -1,0 +1,33 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/my-ielts.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: git
+
+build:
+  toolchains:
+    - kind: node
+      version: 22.x
+  run_buildscript: true
+
+# 静态 Web 应用：无 Docker 镜像，content/ 由 build.sh 在 CI 中从上游构建（480MB 素材不入库）
+
+images: []
+
+stores:
+  official:
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: My IELTS
+    summary: "IELTS 备考资料：词汇、语法、听力、阅读（CI 构建）"
