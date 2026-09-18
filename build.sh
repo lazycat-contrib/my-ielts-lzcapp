@@ -19,7 +19,9 @@ if [ -n "${PIN}" ] && [ "$(git -C /tmp/my-ielts-upstream rev-parse HEAD)" != "${
 fi
 
 cd /tmp/my-ielts-upstream
-npm install -g pnpm@8.6.0
+# pnpm 由 corepack 管理（CI 中 workflow 已 corepack enable pnpm；本地执行时兜底启用）
+corepack enable pnpm 2>/dev/null || true
+corepack prepare pnpm@8.6.0 --activate
 pnpm i --frozen-lockfile
 pnpm build
 
