@@ -27,6 +27,8 @@ jobs:
       operation: auto
       config: .github/lazycat-action.yml
       toolchains: node
+      # npm 缓存需要仓库根有 lockfile；本项目依赖在 build.sh 内从上游安装，改用 pnpm 关闭 setup-node 缓存
+      node-package-manager: pnpm
       dry-run: ${{ github.event_name == 'pull_request' }}
       versioned-release-asset: true
     secrets:
